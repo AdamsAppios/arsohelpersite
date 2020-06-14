@@ -38,6 +38,10 @@ $(document).read(function () {
   LabReportClass.prototype = Object.create(ReportClass.prototype);
   TmbReportClass.prototype = Object.create(ReportClass.prototype);
   KalimpReportClass.prototype = Object.create(ReportClass.prototype);
+  ReportClass.prototype.dealSalesChange = function () {};
+  ReportClass.prototype.pickSalesChange = function () {};
+  ReportClass.prototype.rndSalesChange = function () {};
+
   LabReportClass.prototype.updateCTOCalc = function () {
     var ctoCalc =
       (parseInt($("#dealText").val()) - parseInt($("#less").val())) *
