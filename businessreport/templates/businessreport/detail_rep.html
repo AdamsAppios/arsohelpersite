@@ -1,0 +1,38 @@
+{% extends "businessreport/base_rep.html" %}
+{% block content %}
+{% if location == "Talamban" %}
+    <a href="{% url 'businessreport:tmbrep' %}">Go back To Talamban Report Page</a>
+    <h1>{{ location }}</h1>
+    <span> {{ dateReport }} {{ dayOfWeek }} : {{ duties }} </span><br>
+    <span>D{{ dealText }} P{{ pickText }} + Rnd {{ rndText }}</span><br>
+    <span>{{ htmlDisplaySales }}</span><br>
+    <span>{{ TA }}TA - ({{ expensesText }}) {{ htmlCashTkn }} = {{ ctoCalc }} CTO {{ ctoRep }} {{ htmlShortCTO }}</span><br>
+    <span>{{ htmlShortSl }}</span><br>
+    <span> {{ htmlShortRnd }} </span><br>
+    <span> {{ htmlShortbdgMeter }} </span><br>
+{% elif location == "Labangon" %}
+    <a href="{% url 'businessreport:labrep' %}">Go back To Labangon Report Page</a>
+    <h1>{{ location }}</h1>
+    <span> {{ dateReport }} {{ dayOfWeek }} : {{ duties }} </span><br>
+    <span>D{{ dealText }}-{{ less }}={{ dealLess }} P{{ pickText }}{{ htmlSmall }}{{ htmlSquare }}{{ htmlGoodly }} + Rnd {{ rndText }}</span><br>
+    <span>{{ htmlDisplaySales }}</span><br>
+    <span>{{ TA }}TA - ({{ expensesText }}) {{ htmlCashTkn }} = {{ ctoCalc }} CTO {{ ctoRep }} {{ htmlShortCTO }}</span><br>
+    <span>{{ htmlShortSl }}</span><br>
+    <span>{{ htmlShortSq }}</span><br>    
+    <span> {{ htmlShortRnd }} </span><br>
+    <span> {{ htmlShortbdgMeter }} </span><br>
+{% elif location == "Kalimpyo" %}
+    <a href="{% url 'businessreport:kalrep' %}">Go back To Kalimpyo Report Page</a>
+    <h1>{{ location }}</h1>
+    <span> {{ dateReport }} {{ dayOfWeek }} : {{ duties }} </span><br>
+    <span>D{{ dealText }}-{{ less }}={{ dealLess }} P{{ pickText }}{{ htmlSmall }}{{ htmlSquare }}{{ htmlGoodly }}{{ htmlSmallSq }}{{ htmlBkry}} + Rnd {{ rndText }}</span><br>
+    <span>{{ htmlDisplaySales }}</span><br>
+    <span>{{ TA }}TA - ({{ expensesText }}) {{ htmlCashTkn }} = {{ ctoCalc }} CTO {{ ctoRep }} {{ htmlShortCTO }}</span><br>
+    <span>{{ htmlShortSl }}</span><br>
+    <span>{{ htmlShortSq }}</span><br>    
+    <span> {{ htmlShortRnd }} </span><br>
+    <span> {{ htmlShortbdgMeter }} </span><br>
+{% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+{% endblock content %}

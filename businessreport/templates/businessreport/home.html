@@ -1,0 +1,30 @@
+{% extends "businessreport/base_rep.html" %}
+{% block content %}
+
+<h1> Applications </h1>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'js_app:capsealcounter' %}">Cap Seal Counter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'js_app:moneycounter' %}">Money Counter</a>
+    </li>
+  </ul>
+</nav>
+
+<h1> Reports </h1>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'businessreport:tmbrep' %}">Talamban Report</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'businessreport:labrep' %}">Labangon Report</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'businessreport:kalrep' %}">Kalimpyo Report</a>
+    </li>
+  </ul>
+</nav>
+{% endblock content %}

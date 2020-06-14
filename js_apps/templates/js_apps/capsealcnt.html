@@ -1,0 +1,45 @@
+{% extends "businessreport/base_rep.html" %} {% block content %}
+{% load static %}
+<div id="largestbuttonever">
+  0
+</div>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="form-group row">
+    <span class="navbar-text">
+      Count:
+    </span>
+    <div class="input-group-sm">
+      <input
+        class="form-control"
+        type="text"
+        size="5"
+        id="totalCount"
+        value="0"
+      />
+    </div>
+    <span class="navbar-text">
+      Multiple:
+    </span>
+    <div class="input-group-sm">
+      <input
+        class="form-control"
+        type="text"
+        size="5"
+        id="multiple"
+        value="10"
+      />
+    </div>
+    <button type="button" class="btn btn-success btn-sm" id="left">
+      &lt;&lt;
+    </button>
+    <button type="button" class="btn btn-success btn-sm" id="right">
+      &gt;&gt;
+    </button>
+    <button type="button" class="btn btn-success btn-sm" id="clearCnt">
+      CLR
+    </button>
+  </div>
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'staticreport/capslcnt.js' %}"></script>
+{% endblock content %}

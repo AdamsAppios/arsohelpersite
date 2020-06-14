@@ -1,0 +1,194 @@
+{% extends "businessreport/base_rep.html" %} 
+{% load static %}
+{% block content%}
+<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#billcountdiv"
+        >Bill Counter</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#coincountdiv"
+        >Coin Counter</a
+      >
+    </li>
+  </ul>
+</div>
+
+<div class="tab-content">
+  <div id="billcountdiv" class="container tab-pane active">
+    <h1>Bill Counter</h1>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">1</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="one"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">5</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="five"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">10</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="ten"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">20</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="twenty"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">50</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="fifty"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">100</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="hundred"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">200</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="twohundred"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">500</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="fivehundred"
+        value="0"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">1000</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        id="thousand"
+        value="0"
+      />
+    </div>
+    <button class="btn btn-space" id="totalCash">Calculate Total</button><button  id="clrCash">Clear All</button>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div id="displayTotal">
+      </div>
+    </nav>
+  </div>
+
+  <div id="coincountdiv" class="container tab-pane fade">
+    <div id="largestbuttonever">
+      0
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="form-group row">
+        <span class="navbar-text">
+          Count:
+        </span>
+        <div class="input-group-sm">
+          <input
+            class="form-control"
+            type="text"
+            size="5"
+            id="totalCount"
+            value="0"
+          />
+        </div>
+        <span class="navbar-text">
+          Multiple:
+        </span>
+        <div class="input-group-sm">
+          <input
+            class="form-control"
+            type="text"
+            size="5"
+            id="multiple"
+            value="10"
+          />
+        </div>
+        <button type="button" class="btn btn-success btn-sm" id="left">
+          &lt;&lt;
+        </button>
+        <button type="button" class="btn btn-success btn-sm" id="right">
+          &gt;&gt;
+        </button>
+        <button type="button" class="btn btn-success btn-sm" id="clearCnt">
+          CLR
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'staticreport/moneycnt.js' %}"></script>
+
+{% endblock content %}

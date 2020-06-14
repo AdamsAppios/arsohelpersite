@@ -1,0 +1,107 @@
+{% extends "businessreport/base_rep.html" %} 
+{% load static %} 
+{% block content %}
+<div class="form-check">
+<h1>Golde </h1>
+</div>
+
+<form method="POST" action="#">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Date</span>
+      </div>
+      <input
+        class="form-control"
+        type="date"
+        value=""
+        name="dateReport"
+        id="dateReport"
+      />
+    </div>
+    <div class="form-check">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox1"
+          value="option1"
+        />
+        <label class="form-check-label" for="inlineCheckbox1">Morning</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox2"
+          value="option2"
+        />
+        <label class="form-check-label" for="inlineCheckbox2">Afternoon</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineCheckbox3">Evening</label>
+      </div>
+    </div>
+    <div class="form-check">
+        <strong>Bread: </strong>
+
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio1"
+          value="option1"
+        />
+        <label class="form-check-label" for="inlineRadio1">Small</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio2"
+          value="option2"
+        />
+        <label class="form-check-label" for="inlineRadio2">Medium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineRadio3">Large</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-check">
+      <button class="btn btn-outline-info">Load</button>
+      <button class="btn btn-outline-info" type="submit">Save</button>
+    </div>
+  </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'cctvcnt/cctvgolde.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,420 @@
+{% extends "businessreport/base_rep.html" %} 
+{% load static %}
+
+{% block content %}
+<a href="{% url 'businessreport:logout' %}"> Log out </a>
+<h3 class="row">Kalimpyo</h1>
+<form method="POST" action="{% url 'businessreport:detailrep' %}">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Date</span>
+      </div>
+      <input
+        class="form-control"
+        type="date"
+        value=""
+        name="dateReport"
+        id="dateReport"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Dealer</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="dealText"
+        name="dealText"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Less</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="less"
+        name="less"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Pickup</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="pickText"
+        name="pickText"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Small</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="smallText"
+        name="smallText"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Square</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="squareText"
+        name="squareText"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Small Square</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="smallSquare"
+        name="smallSquare"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Bakery Gallons</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="bakeryGal"
+        name="bakeryGal"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Round Gallons</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="rndText"
+        name="rndText"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Round Beg</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="rndBeg"
+        name="rndBeg"
+      />
+      <div class="input-group-append" id="">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">Round End</span>
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="rndEnd"
+          name="rndEnd"
+        />
+        <span class="input-group-text text-danger" id="isShortRnd"></span>
+        <span class="input-group-text text-danger">IN</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="rndIn"
+          name="rndIn"
+        />
+      </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Cap Seal Beg</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="cpSealBeg"
+        name="cpSealBeg"
+      />
+      <div class="input-group-append" id="">
+        <span class="input-group-text" id="">Cap Seal End</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="cpSeal"
+          name="cpSeal"
+        />
+        <span class="input-group-text text-danger" id="isShortCapSl"></span>
+        <span class="input-group-text text-danger">IN</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="cpSealIn"
+          name="cpSealIn"
+        />
+      </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Square Seal Beg</span>
+      </div>
+      <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="sqSealBeg"
+          name="sqSealBeg"
+      />
+      <div class="input-group-append" id="">
+        <span class="input-group-text" id="">Square Seal End</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="sqSeal"
+          name="sqSeal"
+        />
+        <span class="input-group-text text-danger" id="isShortSqSl"></span>
+        <span class="input-group-text text-danger">IN</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value="0"
+          id="sqSealIn"
+          name="sqSealIn"
+        />
+      </div>
+    </div>    
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Badger Meter Reading</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="bdgMeter"
+        name="bdgMeter"
+      />
+      <div class="input-group-append" id="">
+        <span class="input-group-text text-danger" id="isShortBadger"></span>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Expenses</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total</td>
+          <td id="totalExpenses">0</td>
+        </tr>
+        <tr>
+          <td>
+          <div class="table-button">
+            <div class="row">
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-info add-new">
+                  <i class="fa fa-plus"></i> Add Expenses
+                </button>
+              </div>
+            </div>
+          </div>  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Cash Taken</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="cashTkn"
+        name="cashTkn"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">CTO Calculated</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoCalc"
+        name="ctoCalc"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">CTO Report</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+      <div class="input-group-append" id="">
+        <span class="input-group-text text-danger" id="isShortCTO"></span>
+      </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Duty #1</span>
+      </div>
+      <div class="input-group-append" id="">
+        <input
+          type="text"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value=""
+          id="duty1"
+        />
+        <span class="input-group-text" id="">Duty #2</span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value=""
+          id="duty2"
+        />
+      </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Duty #3</span>
+      </div>
+      <div class="input-group-append" id="">
+        <input
+          type="text"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value=""
+          id="duty3"
+        />
+        <span class="input-group-text" id="">Duty #4</span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon1"
+          value=""
+          id="duty4"
+        />
+      </div>
+    </div>
+    <input type="hidden" id="expensesText" name="expensesText" value="" />
+    <input type="hidden" id="totalExpText" name="totalExpText" value="0" />
+    <input type="hidden" id="location" name="location" value="Kalimpyo" />
+    <input type="hidden" id="duties" name="duties" value="" />
+    <button class="btn btn-outline-info" type="submit">Submit</button>
+  </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'staticreport/kalimp_rep.js' %}"></script>
+{% endblock content %}

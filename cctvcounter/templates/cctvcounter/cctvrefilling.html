@@ -1,0 +1,186 @@
+{% extends "businessreport/base_rep.html" %} 
+{% load static %} 
+{% block content %}
+<form method="POST" action="#">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Date</span>
+      </div>
+      <input
+        class="form-control"
+        type="date"
+        value=""
+        name="dateReport"
+        id="dateReport"
+      />
+    </div>
+    <div class="form-check">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox1"
+          value="option1"
+        />
+        <label class="form-check-label" for="inlineCheckbox1">Morning</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox2"
+          value="option2"
+        />
+        <label class="form-check-label" for="inlineCheckbox2">Afternoon</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="inlineCheckboxOptions"
+          id="inlineCheckbox3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineCheckbox3">Evening</label>
+      </div>
+    </div>
+    <div class="form-check">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="dealerID"
+          value="option1"
+        />
+        <label class="form-check-label" for="dealerID">Dealer</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="pickupID"
+          value="option2"
+        />
+        <label class="form-check-label" for="pickupID">Pickup</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="smallID"
+          value="option3"
+        />
+        <label class="form-check-label" for="smallID">Small</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="RndID"
+          value="option3"
+        />
+        <label class="form-check-label" for="RndID">Round Gallons</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="SquID"
+          value="option3"
+        />
+        <label class="form-check-label" for="SquID">Square Gallons</label>
+      </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Dealers</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Pickup</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Round</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Rectangle</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Dealer Customers</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="ctoRep"
+        name="ctoRep"
+      />
+    </div>
+    <div class="form-check">
+      <button class="btn btn-outline-info">Load</button>
+      <button class="btn btn-outline-info" type="submit">Save</button>
+    </div>
+  </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'cctvcnt/cctvrefilling.js' %}"></script>
+{% endblock content %}
