@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_helpersite.urls'
+ROOT_URLCONF = 'arso_helpersite.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_helpersite.wsgi.application'
+WSGI_APPLICATION = 'arso_helpersite.wsgi.application'
 
 
 # Database
