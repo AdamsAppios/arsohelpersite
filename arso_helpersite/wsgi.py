@@ -1,5 +1,5 @@
 """
-WSGI config for django_helpersite project.
+WSGI config for arso_helpersite project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_helpersite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'arso_helpersite.settings')
 
 application = get_wsgi_application()
