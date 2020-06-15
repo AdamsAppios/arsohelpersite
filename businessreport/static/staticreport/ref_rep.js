@@ -10,18 +10,6 @@ $(document).ready(function () {
     this.smallPrice = 8;
     this.goodlyPrice = 8;
   }
-
-  function ReportClass() {
-    this.dealPrice = 10;
-    this.pickPrice = 15;
-    this.rndPrice = 150;
-  }
-  function LabReportClass() {
-    ReportClass.call(this);
-    this.squarePrice = 15;
-    this.smallPrice = 8;
-    this.goodlyPrice = 8;
-  }
   function TmbReportClass() {
     ReportClass.call(this);
     this.dealPrice = 8;
@@ -154,9 +142,9 @@ $(document).ready(function () {
     this.smallSquareSalesChange();
     this.bakeryGalSalesChange();
   };
-  globalData = {};
-  globalClass = {};
-  locatio = $("h3.row").html();
+  var globalData = {};
+  var globalClass = {};
+  var locatio = $("h3.row").html(); //because location conflicts window.location
   if (locatio == "Talamban") {
     globalClass = new TmbReportClass();
   } else if (locatio == "Labangon") {

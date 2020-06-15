@@ -12,107 +12,55 @@
         class="form-control"
         type="date"
         value=""
-        name="dateReport"
-        id="dateReport"
+        name="date"
+        id="date"
       />
     </div>
-    <div class="form-check">
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox1"
-          value="option1"
-        />
-        <label class="form-check-label" for="inlineCheckbox1">Morning</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox2"
-          value="option2"
-        />
-        <label class="form-check-label" for="inlineCheckbox2">Afternoon</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineCheckbox3">Evening</label>
-      </div>
+    <div class="input-group input-group-sm mb-3">
+      <label for="lugar">Choose a location:</label>
+      <select id="lugar" name="lugar">
+      <option value="Talamban">Talamban</option>
+      <option value="Labangon">Labangon</option>
+      <option value="Kalimpyo">Kalimpyo</option>
+      <option value="Goldswan">Goldswan</option>
+      </select>
     </div>
-    <div class="form-check">
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="dealerID"
-          value="option1"
-        />
-        <label class="form-check-label" for="dealerID">Dealer</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="pickupID"
-          value="option2"
-        />
-        <label class="form-check-label" for="pickupID">Pickup</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="smallID"
-          value="option3"
-        />
-        <label class="form-check-label" for="smallID">Small</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="RndID"
-          value="option3"
-        />
-        <label class="form-check-label" for="RndID">Round Gallons</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="SquID"
-          value="option3"
-        />
-        <label class="form-check-label" for="SquID">Square Gallons</label>
-      </div>
-    </div>
+    <div class="input-group mb-3">
+      <label for="dayparts">Choose a time:</label>
+      <input type="checkbox" name="dayparts" value="Morning">Morning<br>      
+      <input type="checkbox" name="dayparts" value="Afternoon">Afternoon<br>      
+      <input type="checkbox" name="dayparts" value="Evening">Evening<br>
+    </div> 
+    <div class="input-group mb-3">
+      <label for="deal">Dealer</label>
+      <input type="radio" name="chooseradio" id="deal" value="deal">
+      <label for="pick">Pickup</label>
+      <input type="radio" name="chooseradio" id="pick" value="pick">
+      <label for="rnd">Round</label>
+      <input type="radio" name="chooseradio" id="rnd" value="rnd">
+      <label for="smallGal">Small</label>
+      <input type="radio" name="chooseradio" id="smallGal" value="smallGal">
+      <label for="square">Square</label>
+      <input type="radio" name="chooseradio" id="square" value="square">
+      <label for="dealCust">DealCustomers</label>
+      <input type="radio" name="chooseradio" id="dealCust" value="dealCust">
+      <label for="suspect">Suspicion</label>
+      <input type="radio" name="chooseradio" id="suspect" value="suspect">
+    </div> 
+    <button id="addBtn">Add</button><button id="subBtn">Sub</button>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id=""># Dealers</span>
       </div>
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder=""
         aria-label=""
         aria-describedby="basic-addon1"
         value="0"
-        id="ctoRep"
-        name="ctoRep"
+        id="dealer"
+        name="dealer"
       />
     </div>
     <div class="input-group input-group-sm mb-3">
@@ -120,14 +68,14 @@
         <span class="input-group-text" id=""># Pickup</span>
       </div>
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder=""
         aria-label=""
         aria-describedby="basic-addon1"
         value="0"
-        id="ctoRep"
-        name="ctoRep"
+        id="pickup"
+        name="pickup"
       />
     </div>
     <div class="input-group input-group-sm mb-3">
@@ -135,29 +83,44 @@
         <span class="input-group-text" id=""># Round</span>
       </div>
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder=""
         aria-label=""
         aria-describedby="basic-addon1"
         value="0"
-        id="ctoRep"
-        name="ctoRep"
+        id="rnd"
+        name="rnd"
       />
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id=""># Rectangle</span>
+        <span class="input-group-text" id=""># square</span>
       </div>
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder=""
         aria-label=""
         aria-describedby="basic-addon1"
         value="0"
-        id="ctoRep"
-        name="ctoRep"
+        id="squareGal"
+        name="squareGal"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Small</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="smallGal"
+        name="smallGal"
       />
     </div>
     <div class="input-group input-group-sm mb-3">
@@ -165,19 +128,25 @@
         <span class="input-group-text" id=""># Dealer Customers</span>
       </div>
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder=""
         aria-label=""
         aria-describedby="basic-addon1"
         value="0"
-        id="ctoRep"
-        name="ctoRep"
+        id="dealCust"
+        name="dealCust"
       />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Suspicion</span>
+      </div>
+      <textarea class="form-control" id="suspect" rows="14"></textarea>
     </div>
     <div class="form-check">
       <button class="btn btn-outline-info">Load</button>
-      <button class="btn btn-outline-info" type="submit">Save</button>
+      <button class="btn btn-outline-info" type="button" id="saveBtn">Save</button>
     </div>
   </div>
 </form>
