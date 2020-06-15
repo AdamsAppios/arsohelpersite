@@ -1,6 +1,5 @@
 {% extends "businessreport/base_rep.html" %} 
 {% load static %}
-
 {% block content %}
 <a href="{% url 'businessreport:logout' %}"> Log out </a>
 <h3 class="row">Talamban</h1>
@@ -33,6 +32,7 @@
         id="dealText"
         name="dealText"
       />
+      <span class="input-group-text text-danger" id="dealSales"></span>
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
@@ -48,6 +48,7 @@
         id="pickText"
         name="pickText"
       />
+      <span class="input-group-text text-danger" id="pickSales"></span>
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
@@ -63,6 +64,7 @@
         id="rndText"
         name="rndText"
       />
+      <span class="input-group-text text-danger" id="rndSales"></span>
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
@@ -300,5 +302,5 @@
   </div>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="{% static 'staticreport/tmb_rep.js' %}"></script>
+<script src="{% static 'staticreport/ref_rep.js' %}"></script>
 {% endblock content %}

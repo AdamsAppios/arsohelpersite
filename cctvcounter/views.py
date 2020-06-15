@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .decorators import *
 # Create your views here.
 
 
@@ -11,3 +11,7 @@ def cctvgolde(request):
 def cctvrefill(request):
     context = {}
     return render(request, 'cctvcounter/cctvrefilling.html', context)
+
+
+def refloadsave(request):
+    pass
