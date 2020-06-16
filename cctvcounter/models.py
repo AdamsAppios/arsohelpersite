@@ -5,16 +5,52 @@ import datetime as dt
 
 
 class Tmbcamcount (models.Model):
-    pass
+    date = models.DateField(default=dt.datetime(1984, 5, 17))
+    timeCC = models.TimeField(default=dt.time(12, 0, 0))
+    dealer = models.IntegerField(default=0)
+    pickup = models.IntegerField(default=0)
+    rnd = models.IntegerField(default=0)
+    smallGal = models.IntegerField(default=0)
+    squareGal = models.IntegerField(default=0)
+    dealCust = models.IntegerField(default=0)
+    dayparts = models.TextField(blank=True)
+    suspectText = models.TextField(blank=True)
 
 
 class Labcamcount(models.Model):
-    pass
+    date = models.DateField(default=dt.datetime(1984, 5, 17))
+    timeCC = models.TimeField(default=dt.time(12, 0, 0))
+    dealer = models.IntegerField(default=0)
+    pickup = models.IntegerField(default=0)
+    rnd = models.IntegerField(default=0)
+    smallGal = models.IntegerField(default=0)
+    squareGal = models.IntegerField(default=0)
+    dealCust = models.IntegerField(default=0)
+    dayparts = models.TextField(blank=True)
+    suspectText = models.TextField(blank=True)
 
 
 class Kalcamcount(models.Model):
-    pass
+    date = models.DateField(default=dt.datetime(1984, 5, 17))
+    timeCC = models.TimeField(default=dt.time(12, 0, 0))
+    dealer = models.IntegerField(default=0)
+    pickup = models.IntegerField(default=0)
+    rnd = models.IntegerField(default=0)
+    smallGal = models.IntegerField(default=0)
+    squareGal = models.IntegerField(default=0)
+    dealCust = models.IntegerField(default=0)
+    dayparts = models.TextField(blank=True)
+    suspectText = models.TextField(blank=True)
 
 
-class Gscamcount(models.Model):
-    pass
+class Goldswancamcount(models.Model):
+    date = models.DateField(default=dt.datetime(1984, 5, 17))
+    timeCC = models.TimeField(default=dt.time(12, 0, 0))
+    dealer = models.IntegerField(default=0)
+    pickup = models.IntegerField(default=0)
+    rnd = models.IntegerField(default=0)
+    smallGal = models.IntegerField(default=0)
+    squareGal = models.IntegerField(default=0)
+    dealCust = models.IntegerField(default=0)
+    dayparts = models.TextField(blank=True)
+    suspectText = models.TextField(blank=True)

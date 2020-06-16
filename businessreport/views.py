@@ -10,7 +10,6 @@ from django.contrib import messages
 from .forms import CreateUserForm
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
-
 # Create your views here.
 
 

@@ -34,7 +34,6 @@ $(document).ready(function () {
     this.squarePrice = 15;
     this.smallPrice = 5;
     this.smallSqPrice = 10;
-    this.bakeryPrice = 15;
   }
   LabReportClass.prototype = Object.create(ReportClass.prototype);
   TmbReportClass.prototype = Object.create(ReportClass.prototype);
@@ -59,14 +58,126 @@ $(document).ready(function () {
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(speech);
   };
-  $("#saveBtn").click(function () {
+  ReportClass.prototype.ajaxLoadSave = function (option) {
+    var crsf_value = document.querySelector("[name=csrfmiddlewaretoken]").value;
+    data = {
+      csrfmiddlewaretoken: crsf_value,
+      option: option,
+      location: $("#lugar option:selected").text(),
+      date: $("#date").val(),
+      timeCC: $("#timeCC").val(),
+      dayparts: checkboxToString(),
+      dealer: $("#dealer").val(),
+      pickup: $("#pickup").val(),
+      smallGal: $("#smallGal").val(),
+      rnd: $("#rnd").val(),
+      squareGal: $("#squareGal").val(),
+      dealCust: $("#dealCust").val(),
+      suspectText: $("#suspectText").val(),
+    };
+    if (option == "save") {
+      $.ajax({
+        url: "ajax/refillingloadsave/",
+        data: data,
+        method: "POST",
+        dataType: "json",
+        success: function (data) {},
+      });
+    } else if (option == "load") {
+      $.ajax({
+        url: "ajax/refillingloadsave/",
+        data: data,
+        method: "POST",
+        dataType: "json",
+        success: function (data) {
+          $("#timeCC").val(data["timeCC"]);
+          $("#dealer").val(data["dealer"]);
+          $("#pickup").val(data["pickup"]);
+          $("#rnd").val(data["rnd"]);
+          $("#smallGal").val(data["smallGal"]);
+          $("#squareGal").val(data["squareGal"]);
+          $("#dealCust").val(data["dealCust"]);
+          $("#suspectText").val(data["suspectText"]);
+          arrDayParts = data["dayparts"].split(";");
+          for (var i = 0; i < arrDayParts.length; i++) {
+            $("input[type='checkbox'][value='" + arrDayParts[i] + "']").prop(
+              "checked",
+              true
+            );
+          }
+        },
+      });
+    }
+  };
+  ReportClass.prototype.binop = function (a, b, op) {
+    switch (op) {
+      case "add":
+        return a + b;
+      case "sub":
+        return a - b;
+    }
+  };
+  ReportClass.prototype.buttonOperation = function (operation) {
+    radioValue = $("input[name='chooseradio']:checked").attr("id");
+    var incrementVal = parseInt($("#incrementVal").val());
+    messageop = operation == "add" ? "plus " : "minus ";
+    switch (radioValue) {
+      case "deal":
+        dealer = parseInt($("#dealer").val());
+        $("#dealer").val(this.binop(dealer, incrementVal, operation));
+        messageop += " deal";
+        break;
+      case "pick":
+        pickup = parseInt($("#pickup").val());
+        $("#pickup").val(this.binop(pickup, incrementVal, operation));
+        messageop += " pick";
+        break;
+      case "rndRad":
+        rnd = parseInt($("#rnd").val());
+        $("#rnd").val(this.binop(rnd, incrementVal, operation));
+        messageop += " round";
+        break;
+      case "smallRad":
+        smallGal = parseInt($("#smallGal").val());
+        $("#smallGal").val(this.binop(smallGal, incrementVal, operation));
+        messageop += " small";
+        break;
+      case "squareRad":
+        squareGal = parseInt($("#squareGal").val());
+        $("#squareGal").val(this.binop(squareGal, incrementVal, operation));
+        messageop += " square";
+        break;
+      case "dealCustRad":
+        dealCust = parseInt($("#dealCust").val());
+        $("#dealCust").val(this.binop(dealCust, incrementVal, operation));
+        messageop += " Customer";
+        break;
+      case "suspect":
+        var asadapit = prompt("Where did it happen?");
+        var timeh = prompt("Unsa oras hitabo?");
+        var textareaval = $("#suspectText").val();
+        $("#suspectText").val(textareaval + timeh + " : " + asadapit + "\n");
+        messageop += " suspect";
+        break;
+    }
+    this.readOutLoud(messageop);
+  };
+  function checkboxToString() {
     arrCheck = [];
     $("form input[name=dayparts]").each(function (idx, elem) {
       var is_checked = $(this).prop("checked");
       // Do something with is_checked
-      if (is_checked) arrCheck.push($(this).val());
+      if (is_checked) arrCheck.push($(this).attr("id"));
     });
-    alert(arrCheck.join(";"));
+    return arrCheck.join(";");
+  }
+
+  var globalClass = new TmbReportClass();
+  $("#saveBtn").click(function () {
+    globalClass.ajaxLoadSave("save");
+  });
+  $("#loadBtn").click(function () {
+    globalClass.ajaxLoadSave("load");
   });
 
   $("form input[type]").on("click focusin", function () {
@@ -74,8 +185,29 @@ $(document).ready(function () {
   });
   $("form input[type=number]").on("blur", function () {
     if ($(this).val().trim().length == 0) {
-      $(this).val("0");
+      if ($(this).attr("name") == "incrementVal") $(this).val("1");
+      else $(this).val("0");
     }
-    globalClass.updateCTOCalc();
+  });
+  $("#lugar").change(function () {
+    lugar = $("#lugar option:selected").text();
+    switch (lugar) {
+      case "Talamban":
+        globalClass = new TmbReportClass();
+        break;
+      case "Labangon":
+        globalClass = new LabReportClass();
+        break;
+      case "Kalimpyo":
+        globalClass = new KalimpReportClass();
+        break;
+    }
+  });
+
+  $("#subBtn").click(function () {
+    globalClass.buttonOperation("sub");
+  });
+  $("#addBtn").click(function () {
+    globalClass.buttonOperation("add");
   });
 });

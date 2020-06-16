@@ -1,6 +1,7 @@
 {% extends "businessreport/base_rep.html" %} 
 {% load static %} 
 {% block content %}
+
 <form method="POST" action="#">
   {% csrf_token %}
   <div class="form-group">
@@ -15,6 +16,13 @@
         name="date"
         id="date"
       />
+      <input
+        class="form-control"
+        type="time"
+        value=""
+        name="timeCC"
+        id="timeCC"
+      />
     </div>
     <div class="input-group input-group-sm mb-3">
       <label for="lugar">Choose a location:</label>
@@ -27,27 +35,43 @@
     </div>
     <div class="input-group mb-3">
       <label for="dayparts">Choose a time:</label>
-      <input type="checkbox" name="dayparts" value="Morning">Morning<br>      
-      <input type="checkbox" name="dayparts" value="Afternoon">Afternoon<br>      
-      <input type="checkbox" name="dayparts" value="Evening">Evening<br>
+      <input type="checkbox" name="dayparts" value="Morning" id="Morning">Morning<br>      
+      <input type="checkbox" name="dayparts" value="Afternoon" id="Afternoon">Afternoon<br>      
+      <input type="checkbox" name="dayparts" value="Evening" id="Evening">Evening<br>
     </div> 
     <div class="input-group mb-3">
       <label for="deal">Dealer</label>
-      <input type="radio" name="chooseradio" id="deal" value="deal">
+      <input type="radio" name="chooseradio" id="deal" value="deal" checked="checked">
       <label for="pick">Pickup</label>
       <input type="radio" name="chooseradio" id="pick" value="pick">
-      <label for="rnd">Round</label>
-      <input type="radio" name="chooseradio" id="rnd" value="rnd">
-      <label for="smallGal">Small</label>
-      <input type="radio" name="chooseradio" id="smallGal" value="smallGal">
-      <label for="square">Square</label>
-      <input type="radio" name="chooseradio" id="square" value="square">
-      <label for="dealCust">DealCustomers</label>
-      <input type="radio" name="chooseradio" id="dealCust" value="dealCust">
+      <label for="rndRad">Round</label>
+      <input type="radio" name="chooseradio" id="rndRad" value="rndRad">
+      <label for="smallRad">Small</label>
+      <input type="radio" name="chooseradio" id="smallRad" value="smallRad">
+      <label for="squareRad">Square</label>
+      <input type="radio" name="chooseradio" id="squareRad" value="squareRad">
+      <label for="dealCustRad">DealCustomers</label>
+      <input type="radio" name="chooseradio" id="dealCustRad" value="dealCustRad">
       <label for="suspect">Suspicion</label>
       <input type="radio" name="chooseradio" id="suspect" value="suspect">
     </div> 
-    <button id="addBtn">Add</button><button id="subBtn">Sub</button>
+
+    <button type="button" id="addBtn">Add</button><button type="button" id="subBtn">Sub</button>
+     <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""> increment</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="1"
+        id="incrementVal"
+        name="incrementVal"
+      />
+    </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id=""># Dealers</span>
@@ -142,10 +166,10 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="">Suspicion</span>
       </div>
-      <textarea class="form-control" id="suspect" rows="14"></textarea>
+      <textarea class="form-control" id="suspectText" rows="14"></textarea>
     </div>
     <div class="form-check">
-      <button class="btn btn-outline-info">Load</button>
+      <button class="btn btn-outline-info" type="button" id="loadBtn">Load</button>
       <button class="btn btn-outline-info" type="button" id="saveBtn">Save</button>
     </div>
   </div>
