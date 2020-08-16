@@ -35,25 +35,38 @@
     </div>
     <div class="input-group mb-3">
       <label for="dayparts">Choose a time:</label>
-      <input type="checkbox" name="dayparts" value="Morning" id="Morning">Morning<br>      
-      <input type="checkbox" name="dayparts" value="Afternoon" id="Afternoon">Afternoon<br>      
-      <input type="checkbox" name="dayparts" value="Evening" id="Evening">Evening<br>
+      <div class="checkbox">
+        <label><input type="checkbox" name="dayparts" value="Morning" id="Morning">Morning</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="dayparts" value="Afternoon" id="Afternoon">Afternoon</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="dayparts" value="Evening" id="Evening">Evening</label>
+      </div>
     </div> 
     <div class="input-group mb-3">
-      <label for="deal">Dealer</label>
-      <input type="radio" name="chooseradio" id="deal" value="deal" checked="checked">
-      <label for="pick">Pickup</label>
-      <input type="radio" name="chooseradio" id="pick" value="pick">
-      <label for="rndRad">Round</label>
-      <input type="radio" name="chooseradio" id="rndRad" value="rndRad">
-      <label for="smallRad">Small</label>
-      <input type="radio" name="chooseradio" id="smallRad" value="smallRad">
-      <label for="squareRad">Square</label>
-      <input type="radio" name="chooseradio" id="squareRad" value="squareRad">
-      <label for="dealCustRad">DealCustomers</label>
-      <input type="radio" name="chooseradio" id="dealCustRad" value="dealCustRad">
-      <label for="suspect">Suspicion</label>
-      <input type="radio" name="chooseradio" id="suspect" value="suspect">
+      <div class="radio">
+        <label><input type="radio" name="chooseradio" id="deal" value="deal" checked="checked">Dealer</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio" id="pick" value="pick">Pickup</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio" id="rndRad" value="rndRad">Round</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio" id="smallRad" value="smallRad">Small</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio"  id="squareRad" value="squareRad">Square</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio"  id="dealCustRad" value="dealCustRad">DealCustomers</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="chooseradio"  id="suspect" value="suspect">Suspicion</label>
+      </div>
     </div> 
 
     <button type="button" id="addBtn">Add</button><button type="button" id="subBtn">Sub</button>
@@ -174,6 +187,7 @@
     </div>
   </div>
 </form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{% static 'cctvcnt/cctvrefilling.js' %}"></script>
 {% endblock content %}

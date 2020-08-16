@@ -4,7 +4,6 @@
 {% block content %}
 <h3 class="row">Labangon</h1>
 <a href="{% url 'businessreport:logout' %}"> Log out </a>
-
 <form method="POST" action="{% url 'businessreport:detailrep' %}">
   {% csrf_token %}
   <div class="form-group">

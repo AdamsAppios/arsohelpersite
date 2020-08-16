@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "businessreport.apps.BusinessreportConfig",
     "js_apps.apps.JsAppsConfig",
     "crispy_forms",
-
 ]
 
 MIDDLEWARE = [

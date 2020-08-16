@@ -65,3 +65,7 @@ def refloadsave(request):
             return JsonResponse(data)
     else:
         return JsonResponse({})
+
+
+def goldloadsave(request):
+    pass

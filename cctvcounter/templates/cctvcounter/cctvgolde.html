@@ -1,10 +1,6 @@
 {% extends "businessreport/base_rep.html" %} 
 {% load static %} 
 {% block content %}
-<div class="form-check">
-<h1>Golde </h1>
-</div>
-
 <form method="POST" action="#">
   {% csrf_token %}
   <div class="form-group">
@@ -12,96 +8,291 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="">Date</span>
       </div>
+      <input class="form-control" type="date" value="" name="date" id="date" />
       <input
         class="form-control"
-        type="date"
+        type="time"
         value=""
-        name="dateReport"
-        id="dateReport"
+        name="timeCC"
+        id="timeCC"
       />
     </div>
-    <div class="form-check">
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox1"
-          value="option1"
-        />
-        <label class="form-check-label" for="inlineCheckbox1">Morning</label>
+    <div class="input-group input-group-sm mb-3">
+      <label for="lugar">Choose a location:</label>
+      <select id="lugar" name="lugar">
+        <option value="Goldeglo">Goldeglo</option>
+        <option value="Moonlit">Moonlit</option>
+        <option value="Tortamon">Tortamon</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <label for="dayparts">Choose a time:</label>
+      <div class="checkbox">
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Morning"
+            id="Morning"
+          />Morning</label
+        >
       </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox2"
-          value="option2"
-        />
-        <label class="form-check-label" for="inlineCheckbox2">Afternoon</label>
+      <div class="checkbox">
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Afternoon"
+            id="Afternoon"
+          />Afternoon</label
+        >
       </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="inlineCheckboxOptions"
-          id="inlineCheckbox3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineCheckbox3">Evening</label>
+      <div class="checkbox">
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Evening"
+            id="Evening"
+          />Evening</label
+        >
       </div>
     </div>
-    <div class="form-check">
-        <strong>Bread: </strong>
-
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="inlineRadio1"
-          value="option1"
-        />
-        <label class="form-check-label" for="inlineRadio1">Small</label>
+    <div class="input-group mb-3">
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="deal"
+            value="deal"
+            checked="checked"
+          />Dealer</label
+        >
       </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="inlineRadio2"
-          value="option2"
-        />
-        <label class="form-check-label" for="inlineRadio2">Medium</label>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="pick"
+            value="pick"
+          />Pickup</label
+        >
       </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="inlineRadio3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineRadio3">Large</label>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="rndRad"
+            value="rndRad"
+          />Round</label
+        >
+      </div>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="smallRad"
+            value="smallRad"
+          />Small</label
+        >
+      </div>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="squareRad"
+            value="squareRad"
+          />Square</label
+        >
+      </div>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="dealCustRad"
+            value="dealCustRad"
+          />DealCustomers</label
+        >
+      </div>
+      <div class="radio">
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="suspect"
+            value="suspect"
+          />Suspicion</label
+        >
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    <div class="input-group mb-3">
+      <h6>Bread Class</h6>
+      <div class="radio">
+        <label>
+          <input
+              type="radio"
+              name="radioBreadClass"
+              id="smallbrad"
+              value="smallbrad"
+              checked="checked"
+            />Small
+        </label>
+        <label>
+          <input
+              type="radio"
+              name="radioBreadClass"
+              id="medbrad"
+              value="medbrad"
+            />Medium
+        </label>
+        <label>
+          <input
+              type="radio"
+              name="radioBreadClass"
+              id="largebrad"
+              value="largebrad"
+            />Large
+        </label>
+        <label>
+          <input
+              type="radio"
+              name="radioBreadClass"
+              id="siopbrad"
+              value="siopbrad"
+            />Siopao
+        </label>
       </div>
     </div>
+    <button type="button" id="addBtn">Add</button
+    ><button type="button" id="subBtn">Sub</button>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""> increment</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="1"
+        id="incrementVal"
+        name="incrementVal"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Dealers</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="dealer"
+        name="dealer"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Pickup</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="pickup"
+        name="pickup"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Round</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="rnd"
+        name="rnd"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># square</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="squareGal"
+        name="squareGal"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Small</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="smallGal"
+        name="smallGal"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id=""># Dealer Customers</span>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        placeholder=""
+        aria-label=""
+        aria-describedby="basic-addon1"
+        value="0"
+        id="dealCust"
+        name="dealCust"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Suspicion</span>
+      </div>
+      <textarea class="form-control" id="suspectText" rows="14"></textarea>
+    </div>
     <div class="form-check">
-      <button class="btn btn-outline-info">Load</button>
-      <button class="btn btn-outline-info" type="submit">Save</button>
+      <button class="btn btn-outline-info" type="button" id="loadBtn">
+        Load
+      </button>
+      <button class="btn btn-outline-info" type="button" id="saveBtn">
+        Save
+      </button>
     </div>
   </div>
 </form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{% static 'cctvcnt/cctvgolde.js' %}"></script>
 {% endblock content %}

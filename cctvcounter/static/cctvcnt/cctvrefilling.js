@@ -154,13 +154,26 @@ $(document).ready(function () {
         break;
       case "suspect":
         var asadapit = prompt("Where did it happen?");
-        var timeh = prompt("Unsa oras hitabo?");
+        var timebeg = prompt("Time beg?");
+        var timend = prompt("Beg:" + timebeg + ", Time end?");
         var textareaval = $("#suspectText").val();
-        $("#suspectText").val(textareaval + timeh + " : " + asadapit + "\n");
+        $("#suspectText").val(
+          textareaval + timebeg + "-" + timend + "=" + asadapit + "\n"
+        );
         messageop += " suspect";
         break;
     }
     this.readOutLoud(messageop);
+    $("#incrementVal").val("1");
+  };
+  ReportClass.prototype.changeBGColor = function (colo) {
+    var el = $("body"),
+      x = 110,
+      originalColor = "white";
+    el.css("background", colo);
+    setTimeout(function () {
+      el.css("background", originalColor);
+    }, x);
   };
   function checkboxToString() {
     arrCheck = [];
@@ -206,8 +219,10 @@ $(document).ready(function () {
 
   $("#subBtn").click(function () {
     globalClass.buttonOperation("sub");
+    globalClass.changeBGColor("red");
   });
   $("#addBtn").click(function () {
     globalClass.buttonOperation("add");
+    globalClass.changeBGColor("blue");
   });
 });
