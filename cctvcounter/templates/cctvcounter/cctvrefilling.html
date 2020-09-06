@@ -1,4 +1,4 @@
-{% extends "businessreport/base_rep.html" %} 
+{% extends "businessreport/base_rep.html" %}
 {% load static %} 
 {% block content %}
 
@@ -9,13 +9,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="">Date</span>
       </div>
-      <input
-        class="form-control"
-        type="date"
-        value=""
-        name="date"
-        id="date"
-      />
+      <input class="form-control" type="date" value="" name="date" id="date" />
       <input
         class="form-control"
         type="time"
@@ -27,50 +21,122 @@
     <div class="input-group input-group-sm mb-3">
       <label for="lugar">Choose a location:</label>
       <select id="lugar" name="lugar">
-      <option value="Talamban">Talamban</option>
-      <option value="Labangon">Labangon</option>
-      <option value="Kalimpyo">Kalimpyo</option>
-      <option value="Goldswan">Goldswan</option>
+        <option value="Talamban">Talamban</option>
+        <option value="Labangon">Labangon</option>
+        <option value="Kalimpyo">Kalimpyo</option>
+        <option value="Goldswan">Goldswan</option>
       </select>
     </div>
     <div class="input-group mb-3">
       <label for="dayparts">Choose a time:</label>
       <div class="checkbox">
-        <label><input type="checkbox" name="dayparts" value="Morning" id="Morning">Morning</label>
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Morning"
+            id="Morning"
+          />-Morning(7am+)</label
+        >
       </div>
       <div class="checkbox">
-        <label><input type="checkbox" name="dayparts" value="Afternoon" id="Afternoon">Afternoon</label>
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Afternoon"
+            id="Afternoon"
+          />-Afternoon(12pm+)</label
+        >
       </div>
       <div class="checkbox">
-        <label><input type="checkbox" name="dayparts" value="Evening" id="Evening">Evening</label>
+        <label
+          ><input
+            type="checkbox"
+            name="dayparts"
+            value="Evening"
+            id="Evening"
+          />-Evening(4pm+)</label
+        >
       </div>
-    </div> 
+    </div>
     <div class="input-group mb-3">
       <div class="radio">
-        <label><input type="radio" name="chooseradio" id="deal" value="deal" checked="checked">Dealer</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="deal"
+            value="deal"
+            checked="checked"
+          />Dealer</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio" id="pick" value="pick">Pickup</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="pick"
+            value="pick"
+          />Pickup</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio" id="rndRad" value="rndRad">Round</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="rndRad"
+            value="rndRad"
+          />Round</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio" id="smallRad" value="smallRad">Small</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="smallRad"
+            value="smallRad"
+          />Small</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio"  id="squareRad" value="squareRad">Square</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="squareRad"
+            value="squareRad"
+          />Square</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio"  id="dealCustRad" value="dealCustRad">DealCustomers</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="dealCustRad"
+            value="dealCustRad"
+          />DealCustomers</label
+        >
       </div>
       <div class="radio">
-        <label><input type="radio" name="chooseradio"  id="suspect" value="suspect">Suspicion</label>
+        <label
+          ><input
+            type="radio"
+            name="chooseradio"
+            id="suspect"
+            value="suspect"
+          />Suspicion</label
+        >
       </div>
-    </div> 
+    </div>
 
-    <button type="button" id="addBtn">Add</button><button type="button" id="subBtn">Sub</button>
-     <div class="input-group input-group-sm mb-3">
+    <button type="button" id="addBtn">Add</button
+    ><button type="button" id="subBtn">Sub</button>
+    <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id=""> increment</span>
       </div>
@@ -182,8 +248,12 @@
       <textarea class="form-control" id="suspectText" rows="14"></textarea>
     </div>
     <div class="form-check">
-      <button class="btn btn-outline-info" type="button" id="loadBtn">Load</button>
-      <button class="btn btn-outline-info" type="button" id="saveBtn">Save</button>
+      <button class="btn btn-outline-info" type="button" id="loadBtn">
+        Load
+      </button>
+      <button class="btn btn-outline-info" type="button" id="saveBtn">
+        Save
+      </button>
     </div>
   </div>
 </form>
