@@ -1,6 +1,6 @@
 //Steve this is stev
 $(document).ready(function () {
-  function appHelp() {}
+  function appHelp() { }
   function moneyCnt() {
     appHelp.call(this);
   }
@@ -10,50 +10,14 @@ $(document).ready(function () {
   }
   moneyCnt.prototype = Object.create(appHelp.prototype);
   capSealCnt.prototype = Object.create(appHelp.prototype);
-  capSealCnt.prototype.readOutLoud = function (message) {
-    var speech = new SpeechSynthesisUtterance();
 
-    // Set the text and voice attributes.
-    var isSafari =
-      navigator.vendor &&
-      navigator.vendor.indexOf("Apple") > -1 &&
-      navigator.userAgent &&
-      navigator.userAgent.indexOf("CriOS") == -1 &&
-      navigator.userAgent.indexOf("FxiOS") == -1;
-    rate = isSafari ? 1.5 : 2.4;
-    var voices = window.speechSynthesis.getVoices();
-    speech.voice = isSafari ? voices[11] : voices[0];
-    speech.text = message;
-    speech.volume = 1;
-    speech.rate = rate;
-    speech.pitch = 1;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
-  };
-  capSealCnt.prototype.clickLargeButton = function (e) {
-    $("#largestbuttonever").css("background-color", "white");
-    if ($("#multiple").val() == "") $("#multiple").val(bills[defaultMultiple]);
-    $("#totalCount").val(
-      (
-        parseInt($("#totalCount").val()) +
-        1 * parseInt($("#multiple").val())
-      ).toString()
-    );
-    $("#largestbuttonever").text($("#totalCount").val());
-    var $el = $("#largestbuttonever"),
-      x = 110,
-      originalColor = $el.css("background-color");
-    $el.css("background-color", "red");
-    setTimeout(function () {
-      $el.css("background-color", originalColor);
-    }, x);
-    cp.readOutLoud($("#totalCount").val());
-    $("#multiple").val(bills[defaultMultiple]);
-  };
+
   var mn = new moneyCnt();
   var cp = new capSealCnt();
-  function readOutLoud() {
+  function readOutLoud(message) {
     // Set the text and voice attributes.
+    var speech = new SpeechSynthesisUtterance();
+
     var isSafari =
       navigator.vendor &&
       navigator.vendor.indexOf("Apple") > -1 &&
