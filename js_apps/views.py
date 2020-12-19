@@ -11,3 +11,8 @@ def capsealCnt(request):
 def moneyCnt(request):
     context = {}
     return render(request, 'js_apps/moneycnt.html', context)
+
+
+def labReport(request):
+    context = {}
+    return render(request, 'js_apps/labReportMaker.html', context)
