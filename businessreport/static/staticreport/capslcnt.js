@@ -18,7 +18,7 @@ function readOutLoud(message) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(speech);
 }
-var bills = ["5", "10", "20", "25", "50", "100", "500", "1000"],
+var bills = ["1","5", "10", "20", "25", "50", "100", "500", "1000"],
   defaultMultiple = 1;
 srate = 1.9;
 voice = "US English Male";
