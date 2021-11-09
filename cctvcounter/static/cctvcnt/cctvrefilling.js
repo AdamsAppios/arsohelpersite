@@ -225,4 +225,9 @@ $(document).ready(function () {
     globalClass.buttonOperation("add");
     globalClass.changeBGColor("blue");
   });
+  $(document.body).keyup(function (event) {
+    if (event.keyCode === 13) {
+      $("#addBtn").click();
+    }
+  });
 });
