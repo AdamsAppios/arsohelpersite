@@ -225,11 +225,35 @@ $(document).ready(function () {
     globalClass.buttonOperation("add");
     globalClass.changeBGColor("blue");
   });
+
+  radArray = [
+    "deal",
+    "pick",
+    "rndRad",
+    "smallRad",
+    "squareRad",
+    "dealCustRad",
+    "suspect",
+  ];
   $(document.body).keyup(function (event) {
+    let radioValue = $("input[name='chooseradio']:checked").attr("id");
+    let indexRad = radArray.indexOf(radioValue);
     if (event.keyCode === 13) {
       $("#addBtn").click();
     } else if (event.keyCode === 109) {
       $("#subBtn").click();
+    } else if (event.keyCode === 102) {
+      indexRad++;
+      if (indexRad > radArray.length - 1) {
+        indexRad = 0;
+      }
+      $(`#${radArray[indexRad]}`).prop("checked", true);
+    } else if (event.keyCode === 100) {
+      indexRad--;
+      if (indexRad < 0) {
+        indexRad = radArray.length - 1;
+      }
+      $(`#${radArray[indexRad]}`).prop("checked", true);
     }
   });
 });
