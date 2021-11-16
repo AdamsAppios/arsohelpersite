@@ -3,6 +3,16 @@ $(document).ready(function () {
     this.dealPrice = 10;
     this.pickPrice = 15;
     this.rndPrice = 150;
+    this.radioValue = $("input[name='chooseradio']:checked").attr("id");
+    this.radArray = [
+      "deal",
+      "pick",
+      "rndRad",
+      "smallRad",
+      "squareRad",
+      "dealCustRad",
+      "suspect",
+    ];
   }
   function LabReportClass() {
     ReportClass.call(this);
@@ -118,8 +128,8 @@ $(document).ready(function () {
     }
   };
   ReportClass.prototype.buttonOperation = function (operation) {
-    radioValue = $("input[name='chooseradio']:checked").attr("id");
-    var incrementVal = parseInt($("#incrementVal").val());
+    let radioValue = $("input[name='chooseradio']:checked").attr("id");
+    let incrementVal = parseInt($("#incrementVal").val());
     messageop = operation == "add" ? "plus " : "minus ";
     switch (radioValue) {
       case "deal":
@@ -175,6 +185,28 @@ $(document).ready(function () {
       el.css("background", originalColor);
     }, x);
   };
+  ReportClass.prototype.keyPress = function (event) {
+    let radArray = this.radArray;
+    let radioValue = $("input[name='chooseradio']:checked").attr("id");
+    let indexRad = radArray.indexOf(radioValue);
+    if (event.keyCode === 13) {
+      $("#addBtn").click();
+    } else if (event.keyCode === 109) {
+      $("#subBtn").click();
+    } else if (event.keyCode === 39) {
+      indexRad++;
+      if (indexRad > radArray.length - 1) {
+        indexRad = 0;
+      }
+      $(`#${radArray[indexRad]}`).prop("checked", true);
+    } else if (event.keyCode === 37) {
+      indexRad--;
+      if (indexRad < 0) {
+        indexRad = radArray.length - 1;
+      }
+      $(`#${radArray[indexRad]}`).prop("checked", true);
+    }
+  };
   function checkboxToString() {
     arrCheck = [];
     $("form input[name=dayparts]").each(function (idx, elem) {
@@ -226,34 +258,7 @@ $(document).ready(function () {
     globalClass.changeBGColor("blue");
   });
 
-  radArray = [
-    "deal",
-    "pick",
-    "rndRad",
-    "smallRad",
-    "squareRad",
-    "dealCustRad",
-    "suspect",
-  ];
   $(document.body).keyup(function (event) {
-    let radioValue = $("input[name='chooseradio']:checked").attr("id");
-    let indexRad = radArray.indexOf(radioValue);
-    if (event.keyCode === 13) {
-      $("#addBtn").click();
-    } else if (event.keyCode === 109) {
-      $("#subBtn").click();
-    } else if (event.keyCode === 102) {
-      indexRad++;
-      if (indexRad > radArray.length - 1) {
-        indexRad = 0;
-      }
-      $(`#${radArray[indexRad]}`).prop("checked", true);
-    } else if (event.keyCode === 100) {
-      indexRad--;
-      if (indexRad < 0) {
-        indexRad = radArray.length - 1;
-      }
-      $(`#${radArray[indexRad]}`).prop("checked", true);
-    }
+    globalClass.keyPress(event);
   });
 });
