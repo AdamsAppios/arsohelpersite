@@ -225,10 +225,10 @@ $(document).ready(function () {
     globalClass.ajaxLoadSave("load");
   });
 
-  $("form input[type]").on("click focusin", function () {
+  $("form #incrementVal").on("click focusin", function () {
     this.value = "";
   });
-  $("form input[type=number]").on("blur", function () {
+  $("form #incrementVal").on("blur", function () {
     if ($(this).val().trim().length == 0) {
       if ($(this).attr("name") == "incrementVal") $(this).val("1");
       else $(this).val("0");
